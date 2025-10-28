@@ -2,7 +2,7 @@
 const driversRates          = { A: 0.015, B: 0.06, C: 0.04, D: 0.10 };
 const customersRates        = { A: 0.025, B: 0.09, C: 0.05, D: 0.12 };
 const handlingTimeDrivers   = 500;
-const handlingTimeCustomers = 1200;
+const handlingTimeCustomers = 900;
 
 //selecting all elements that will be needed later 
 const form            = document.querySelector("form");
@@ -277,7 +277,7 @@ function formHandler (event) {
             const aText = document.createElement("h3");
             aText.textContent = "Customers & drivers - sending out emails with low response times and response required";
             const responses = document.createElement("p");
-            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            responses.textContent = `Expected customer volume : ${expectedCustomer} enquiries.`
             const dResponses = document.createElement("p");
             dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
             const workLoad = document.createElement("p");
@@ -292,7 +292,7 @@ function formHandler (event) {
             const aText = document.createElement("h3");
             aText.textContent = "Customers - sending out emails with high response times and response required";
             const responses = document.createElement("p");
-            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            responses.textContent = `Expected customer volume : ${expectedCustomer} enquiries.`
             const dResponses = document.createElement("p");
             dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
             const workLoad = document.createElement("p");
@@ -302,4 +302,24 @@ function formHandler (event) {
             resultContainer.appendChild(dResponses);
             resultContainer.appendChild(workLoad);
         } 
+        const newCalc = document.createElement("button")
+        newCalc.textContent = "New calculation";
+        resultContainer.appendChild(newCalc)
+
+        newCalc.addEventListener("click", newCalculation)
+}
+
+function newCalculation (event) {
+    event.preventDefault();
+    resultContainer.style.display = "none";
+    form.style.display = "block";
+    amountInput.value = "";
+    
+
+    if (amountDriversInput) amountDriversInput.value = "";
+    if (amountCustomersInput) amountCustomersInput.value = "";
+
+    Array.from(userType).forEach(radio => radio.checked = false)
+    Array.from(effectOr).forEach(radio => radio.checked = false)
+    Array.from(responseTime).forEach(radio => radio.checked = false)
 }
