@@ -26,7 +26,7 @@
             <p class = "pElement">How many customers / drivers?</p>
             <label>
                 <input type="text" name="amount">
-                <button type="submit">Submit</button>
+                
             </label>
         </div>
         <div class = "effect">
@@ -44,18 +44,19 @@
         <div class = "backLogg">
             <p class = "pElement">Current response time (ask David)</p>
             <label>
-                <input type="radio" name="duration" value="less3"> &lt; 3 days
+                <input type="radio" name="responseTime" value="less3"> &lt; 3 days
             </label>
 
             <label>
-                <input type="radio" name="duration" value="more3"> &gt; 3 days
+                <input type="radio" name="responseTime" value="more3"> &gt; 3 days
             </label>
 
             <label>
-                <input type="radio" name="duration" value="unknown"> I don't know
+                <input type="radio" name="responseTime" value="unknown"> I don't know
             </label>
         </div>
         <button class="submitAll">How much will it hurt? </button>
     </form>
+    <script src="impact-calc.js"></script>
 </body>
 </html>

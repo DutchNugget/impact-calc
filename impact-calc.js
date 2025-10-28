@@ -17,7 +17,7 @@ const responseRates = {
 //selecting all elements that will be needed later 
 const form = document.querySelector("form");
 const userType = document.getElementsByName("userType");
-const amountInput = document.querySelector(`input["amount"]`)
+const amountInput = document.querySelector(`input[name = "amount"]`)
 const resultContainer = document.createElement("div")
 
 
@@ -38,7 +38,7 @@ function handleUserType () {
     if (selection === "both"){
         amountInput.style.display = "none";
 
-        if (!bothContainer.hasChildNodes()){
+        if (!amountDriversInput && !amountCustomersInput){
 
             //driver input
             const driverLabel         = document.createElement("label");
@@ -75,5 +75,7 @@ function handleUserType () {
           while (bothContainer.firstChild){
             bothContainer.removeChild(bothContainer.firstChild)
           }
+          amountDriversInput   = null;
+          amountCustomersInput = null;
         }
 };
