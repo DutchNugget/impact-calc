@@ -1,8 +1,8 @@
 
 const driversRates          = { A: 0.015, B: 0.06, C: 0.04, D: 0.10 };
 const customersRates        = { A: 0.025, B: 0.09, C: 0.05, D: 0.12 };
-const handlingTimeDrivers   = 500;
-const handlingTimeCustomers = 900;
+const handlingTimeDrivers   = 60 * 4.5
+const handlingTimeCustomers = 60 * 8;
 
 //selecting all elements that will be needed later 
 const form            = document.querySelector("form");

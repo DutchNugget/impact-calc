@@ -1,1 +1,137 @@
+/* ====== General body styling ====== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
+/* ====== Form container ====== */
+form {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 450px;
+    width: 100%;
+}
+
+/* ====== Sections inside form ====== */
+form .segment,
+form .amountOf,
+form .effect,
+form .backLogg {
+    margin-bottom: 20px;
+}
+
+/* ====== Section headings ====== */
+form .pElement {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* ====== Labels & radio buttons ====== */
+form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* ====== Text input styling ====== */
+form input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* ====== Submit button ====== */
+form button#submitAll {
+    background-color: #2196F3;;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+form button#submitAll:hover {
+    background-color: #45a049;
+}
+
+/* ====== Result container ====== */
+.result {
+    margin-top: 25px;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 450px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ====== Result headings ====== */
+.result h3 {
+    margin-top: 0;
+    color: #222;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* ====== Result paragraphs ====== */
+.result p {
+    margin: 4px 0;
+    color: #555;
+}
+
+/* ====== New calculation button ====== */
+.result button {
+    margin-top: 15px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.result button:hover {
+    background-color: #1976D2;
+}
+
+/* ====== For smaller screens ====== */
+@media (max-width: 500px) {
+    form, .result {
+        padding: 20px;
+    }
+
+    form button#submitAll, .result button {
+        padding: 10px 14px;
+    }
+}
