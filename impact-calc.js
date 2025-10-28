@@ -8,7 +8,7 @@ const handlingTimeCustomers = 1200;
 const form            = document.querySelector("form");
 const userType        = document.getElementsByName("userType");
 const amountInput     = document.querySelector(`input[name = "amount"]`)
-
+const body            = document.querySelector("body")
 const effectOr        = document.getElementsByName("effectOr")
 const responseTime    = document.getElementsByName("responseTime")
 
@@ -22,7 +22,7 @@ const bothContainer = document.createElement("div")
 const resultContainer = document.createElement("div")
 resultContainer.style.display = "none"
 resultContainer.classList.add("result");
-form.appendChild(resultContainer);
+body.appendChild(resultContainer);
 
 
 // Converts user type to array for use in later function and adds listener to each radio
@@ -126,16 +126,180 @@ function formHandler (event) {
             if (selection === "drivers"){
                 driverRate       = driversRates[scenario] 
                 expectedDriver   = driverRate * amount
-                expectedWorkload = (expectedDriver * handlingTimeDrivers) / 3600
+                expectedWorkload = ((expectedDriver * handlingTimeDrivers) / 3600).toFixed(1)
             } else if (selection === "customers"){
                 customerRate     = customersRates[scenario]
                 expectedCustomer = customerRate * amount
-                expectedWorkload = (expectedCustomer * handlingTimeCustomers) / 3600
+                expectedWorkload = ((expectedCustomer * handlingTimeCustomers) / 3600).toFixed(1)
             } else {
                 customerRate     = customersRates[scenario]
                 driverRate       = driversRates[scenario]
                 expectedDriver   = driverRate   * driversAmount
                 expectedCustomer = customerRate * customerAmount
-                expectedWorkload = ((expectedDriver * handlingTimeDrivers)+ (expectedCustomer * handlingTimeCustomers)) / 3600
+                expectedWorkload = (((expectedDriver * handlingTimeDrivers)+ (expectedCustomer * handlingTimeCustomers)) / 3600).toFixed(1)
             }
+        form.style.display = "none"
+        while (resultContainer.firstChild){
+            resultContainer.removeChild(resultContainer.firstChild);
+        }
+        console.log(scenario, selection);
+        //driver scenarios
+        if (scenario === "A" && selection === "drivers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Drivers - sending out emails with low response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "B" && selection === "drivers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Drivers - sending out emails with high response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "C" && selection === "drivers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Drivers - sending out emails with low response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "D" && selection === "drivers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Drivers - sending out emails with high response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+            //customer scenarios
+        } else  if (scenario === "A" && selection === "customers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers - sending out emails with low response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "B" && selection === "customers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers - sending out emails with high response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "C" && selection === "customers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers - sending out emails with low response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "D" && selection === "customers") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers - sending out emails with high response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(workLoad);
+
+        //both scenarios
+        }  else  if (scenario === "A" && selection === "both") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers & drivers - sending out emails with low response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected customer volume : ${expectedCustomer} enquiries.`
+            const dResponses = document.createElement("p");
+            dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(dResponses);
+            resultContainer.appendChild(workLoad);
+
+        } else if (scenario === "B" && selection === "both") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers & drivers - sending out emails with high response times and no response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected customer volume : ${expectedCustomer} enquiries.`
+            const dResponses = document.createElement("p");
+            dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(dResponses);
+            resultContainer.appendChild(workLoad); 
+
+        } else if (scenario === "C" && selection === "both") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers & drivers - sending out emails with low response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const dResponses = document.createElement("p");
+            dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(dResponses);
+            resultContainer.appendChild(workLoad);
+            
+        } else if (scenario === "D" && selection === "both") {
+            resultContainer.style.display = "block"
+            const aText = document.createElement("h3");
+            aText.textContent = "Customers - sending out emails with high response times and response required";
+            const responses = document.createElement("p");
+            responses.textContent = `Expected enquiry volume : ${expectedCustomer} enquiries.`
+            const dResponses = document.createElement("p");
+            dResponses.textContent = `Expected driver volume : ${expectedDriver} enquiries.`
+            const workLoad = document.createElement("p");
+            workLoad.textContent = `Calculated workload : ${expectedWorkload} hours.`
+            resultContainer.appendChild(aText);
+            resultContainer.appendChild(responses);
+            resultContainer.appendChild(dResponses);
+            resultContainer.appendChild(workLoad);
+        } 
 }
