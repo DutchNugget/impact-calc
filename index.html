@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <div class = "segment">
+            <p class = "pElement">Which segment are you targeting?</p>
+            <label>
+                <input type = "radio" name = "userType" value = "customers">Customers
+            </label>
 
+            <label>
+                <input type = "radio" name = "userType" value = "drivers">Drivers
+            </label>
+
+            <label>
+                <input type = "radio" name = "userType" value = "both">Both
+            </label>
+        </div>
+        <div class = "amountOf">
+            <p class = "pElement">How many customers / drivers?</p>
+            <label>
+                <input type="text" name="amount">
+                <button type="submit">Submit</button>
+            </label>
+        </div>
+        <div class = "effect">
+            <p class = "pElement">Will the email require input from recipient?</p>
+            <label>
+                 <label>
+                <input type = "radio" name = "effectOr" value = "yes">Yes
+            </label>
+
+            <label>
+                <input type = "radio" name = "effectOr" value = "no">No
+            </label>
+            </label>
+        </div>
+        <div class = "backLogg">
+            <p class = "pElement">Current response time (ask David)</p>
+            <label>
+                <input type="radio" name="duration" value="less3"> &lt; 3 days
+            </label>
+
+            <label>
+                <input type="radio" name="duration" value="more3"> &gt; 3 days
+            </label>
+
+            <label>
+                <input type="radio" name="duration" value="unknown"> I don't know
+            </label>
+        </div>
+        <button class="submitAll">How much will it hurt? </button>
+    </form>
+</body>
+</html>
